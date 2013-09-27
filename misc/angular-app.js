@@ -6,15 +6,10 @@ angular.module('app', [
   'github.activity'
 ])
 
-.config(['$routeProvider', '$locationProvider', '$githubActivityProvider', function ($routeProvider, $locationProvider, $githubActivityProvider) {
+.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   
   $locationProvider.html5Mode(true);
-  
-  $githubActivityProvider.set({
-    params:{
-      access_token:'ef39c49946b602db1e249feda19bd3514ec8f08c'
-    }
-  });
+
   $routeProvider.when('/angular-github-activity', {
     templateUrl:'views/angular-github-activity.tpl.html',
     controller:'AppCtrl'
@@ -25,18 +20,17 @@ angular.module('app', [
 
 
 .controller('AppCtrl', ['$scope','GithubActivityService', function($scope,GithubActivityService) {
- 
+
   GithubActivityService.events({
-    job:'1',
-    id:'gigablox'
+    user:'gigablox',
+    access_token:'ef39c49946b602db1e249feda19bd3514ec8f08c'
   });
 
-  $scope.$on('githubActivityEvents1', function(e,d){
+  $scope.$on('githubActivityEvents', function(e,d){
     $scope.events = d;
   });
   
   $scope.options = {
     limit:5
   };
-  
 }]);

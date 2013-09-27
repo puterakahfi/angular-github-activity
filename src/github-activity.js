@@ -1,63 +1,20 @@
 angular.module('github.activity', ['github.activity.tpls'])
 
-.provider("$githubActivity", function(){
-    var options = {};
-    this.set= function(value){
-        options = value;
-    };
-
-    this.$get = ["$resource","$http","$q",function($resource,$http,$q){
-        function GithubActivity(opts) {
-            this.options = angular.extend({}, opts);
-        }
-        GithubActivity.prototype.users = function(opts){
-            var options = angular.extend({}, this.options, opts);
-            return $resource('https://api.github.com/users/:id',{id:opts.id},{
-                'query':{
-                    method:'JSONP',
-                    isArray: false,
-                    params:angular.extend({},{callback:'JSON_CALLBACK'},options.params)
-                }
-            });
-        };
-        GithubActivity.prototype.events = function(opts){
-            var options = angular.extend({}, this.options, opts);
-            return $resource('https://api.github.com/users/:id/events',{id:opts.id},{
-                'query':{
-                    method:'JSONP',
-                    isArray: false,
-                    params:angular.extend({},{callback:'JSON_CALLBACK'},options.params)
-                }
-            });
-        };
-        return {
-            githubActivity: function(opts){
-                return new GithubActivity(opts);
-            }
-        };
-    }];
-})
-
-.factory('GithubActivityService', function($q,$githubActivity,$rootScope) {
+.factory('GithubActivityService', function($q,$rootScope,$resource) {
 
     var _githubActivity = {};
-    var githubActivityProvider = $githubActivity.githubActivity();
 
-    _githubActivity.users = function(opts){
-        githubActivityProvider.users(opts).query().$promise.then(
-        function(users){
-            $rootScope.$broadcast('githubActivityUsers'+opts.job, users.data);
-        });
+    var events = function(opts){
+        return $resource('https://api.github.com/users/:user/events', {user: opts.user}, {search: {method:'JSONP',params:{callback: 'JSON_CALLBACK',access_token:opts.access_token}}});
     }
-
-    _githubActivity.events = function(opts){
         
-        githubActivityProvider.events(opts).query().$promise.then(
+    _githubActivity.events = function(opts){
+        events(opts).search().$promise.then(
         function(events){
-            $rootScope.$broadcast('githubActivityEvents'+opts.job, events.data);
+            $rootScope.$broadcast('githubActivityEvents', events.data);
         });
     }
-    
+
     return _githubActivity;
   })
 

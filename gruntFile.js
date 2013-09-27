@@ -7,7 +7,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-html-build');
-
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('build', [
                               'clean:build',
@@ -186,6 +186,12 @@ module.exports = function (grunt) {
                 'htmlbuild:build'
                 ]
       },
+    },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        singleRun: true
+      }
     }
   });
 };
