@@ -24,12 +24,10 @@ angular.module('app', [
   GithubActivityService.events({
     user:'gigablox',
     access_token:'ef39c49946b602db1e249feda19bd3514ec8f08c'
+  }).search().$promise.then(function(events){
+    $scope.events = events.data;
   });
 
-  $scope.$on('githubActivityEvents', function(e,d){
-    $scope.events = d;
-  });
-  
   $scope.options = {
     limit:5
   };

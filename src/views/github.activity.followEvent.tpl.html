@@ -3,11 +3,13 @@
     <div class="github-activity-row-icon-container">
         <span class="icon-user github-activity-row-icon"></span>
     </div>
+    <!-- make this one transclude directive -->
     <div class="github-activity-description-container">
         <span class="github-activity-description-label">started following</span>
         <br>
         <a href="{{event.payload.target.html_url}}" target="_blank">@{{event.payload.target.login}}</a>
     </div>
+    <!-- make this another transclude directive -->
     <div class="github-activity-message-container">
         <span class="github-activity-message-lquote">&#8220;</span>
         <span class="github-activity-message">

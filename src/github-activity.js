@@ -1,22 +1,14 @@
-angular.module('github.activity', ['github.activity.tpls'])
-
+angular.module('github.activity', ['ngResource','github.activity.tpls'])
 .factory('GithubActivityService', function($q,$rootScope,$resource) {
-
     var _githubActivity = {};
-
-    var events = function(opts){
-        return $resource('https://api.github.com/users/:user/events', {user: opts.user}, {search: {method:'JSONP',params:{callback: 'JSON_CALLBACK',access_token:opts.access_token}}});
-    }
-        
     _githubActivity.events = function(opts){
-        events(opts).search().$promise.then(
-        function(events){
-            $rootScope.$broadcast('githubActivityEvents', events.data);
+        return $resource('https://api.github.com/users/:user/events', {user: opts.user}, {
+            search: {method:'JSONP',params:{callback: 'JSON_CALLBACK'}}
         });
     }
-
     return _githubActivity;
-  })
+})
+
 
 .directive('githubActivity', function() {
     return {
