@@ -1,14 +1,13 @@
-angular.module('github.activity', ['ngResource','github.activity.tpls'])
+angular.module('github.activity', ['github.activity.tpls'])
 .factory('GithubActivityService', function($q,$rootScope,$resource) {
     var _githubActivity = {};
     _githubActivity.events = function(opts){
         return $resource('https://api.github.com/users/:user/events', {user: opts.user}, {
-            search: {method:'JSONP',params:{callback: 'JSON_CALLBACK'}}
+            search: {method:'JSONP',params:opts.params}
         });
     }
     return _githubActivity;
 })
-
 
 .directive('githubActivity', function() {
     return {
@@ -28,9 +27,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.pushEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -41,9 +37,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.issuesEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -54,9 +47,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.issuesCommentEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -67,9 +57,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.forkEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -80,9 +67,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.pullRequestEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -93,9 +77,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.watchEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -106,9 +87,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.followEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -119,9 +97,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.commitCommentEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -132,9 +107,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.createEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -145,9 +117,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.releaseEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -158,9 +127,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.forkApplyEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -171,9 +137,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.gistEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -184,9 +147,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.gollumEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -197,9 +157,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.memberEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -210,9 +167,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.publicEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -223,9 +177,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.pullRequestReviewCommentEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -236,9 +187,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.teamAddEvent.tpl.html',
         link: function(scope, controller) {
         }
@@ -249,9 +197,6 @@ angular.module('github.activity', ['ngResource','github.activity.tpls'])
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-          event: '=',
-        },
         templateUrl: 'views/github.activity.deleteEvent.tpl.html',
         link: function(scope, controller) {
         }

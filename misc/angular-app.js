@@ -23,7 +23,10 @@ angular.module('app', [
 
   GithubActivityService.events({
     user:'gigablox',
-    access_token:'ef39c49946b602db1e249feda19bd3514ec8f08c'
+    params:{
+      callback:'JSON_CALLBACK',
+      access_token:'ef39c49946b602db1e249feda19bd3514ec8f08c'
+    }
   }).search().$promise.then(function(events){
     $scope.events = events.data;
   });
