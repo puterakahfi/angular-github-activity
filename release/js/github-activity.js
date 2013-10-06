@@ -393,32 +393,30 @@ angular.module("views/github.activity.teamAddEvent.tpl.html", []).run(["$templat
 
 angular.module("views/github.activity.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("views/github.activity.tpl.html",
-    "<div>\n" +
-    "    <div>\n" +
-    "        <div style=\"text-align:center;\">\n" +
-    "            <span class=\"icon-github github-activity-icon\"></span>\n" +
-    "            <span class=\"github-activity-heading\">GITHUB ACTIVITY</span>\n" +
-    "        </div>\n" +
+    "<div class=\"github-activity\">\n" +
+    "    <div class=\"github-activity-header\">\n" +
+    "        <span class=\"icon-github github-activity-icon\"></span>\n" +
+    "        <span class=\"github-activity-header-label\">GITHUB ACTIVITY</span>\n" +
     "    </div>\n" +
-    "    <div class=\"row github-activity-row\" ng-repeat=\"event in events | limitTo:options.limit\">\n" +
-    "            <github-activity-push-event></github-activity-push-event>\n" +
-    "            <github-activity-issues-event></github-activity-issues-event>\n" +
-    "            <github-activity-issues-comment-event></github-activity-issues-comment-event>\n" +
-    "            <github-activity-fork-event></github-activity-fork-event>\n" +
-    "            <github-activity-pull-request-event></github-activity-pull-request-event>\n" +
-    "            <github-activity-delete-event></github-activity-delete-event>\n" +
-    "            <github-activity-watch-event></github-activity-watch-event>\n" +
-    "            <github-activity-follow-event></github-activity-follow-event>\n" +
-    "            <github-activity-commit-comment-event></github-activity-commit-comment-event>\n" +
-    "            <github-activity-create-event></github-activity-create-event>\n" +
-    "            <github-activity-release-event></github-activity-release-event>\n" +
-    "            <github-activity-fork-apply-event></github-activity-fork-apply-event>\n" +
-    "            <github-activity-gist-event></github-activity-gist-event>\n" +
-    "            <github-activity-gollum-event></github-activity-gollum-event>\n" +
-    "            <github-activity-member-event></github-activity-member-event>\n" +
-    "            <github-activity-public-event></github-activity-public-event>\n" +
-    "            <github-activity-pull-request-review-comment-event></github-activity-pull-request-review-comment-event>\n" +
-    "            <github-activity-team-add-event></github-activity-team-add-event>\n" +
+    "    <div class=\"github-activity-row\" ng-repeat=\"event in events | limitTo:options.limit\">\n" +
+    "        <github-activity-push-event></github-activity-push-event>\n" +
+    "        <github-activity-issues-event></github-activity-issues-event>\n" +
+    "        <github-activity-issues-comment-event></github-activity-issues-comment-event>\n" +
+    "        <github-activity-fork-event></github-activity-fork-event>\n" +
+    "        <github-activity-pull-request-event></github-activity-pull-request-event>\n" +
+    "        <github-activity-delete-event></github-activity-delete-event>\n" +
+    "        <github-activity-watch-event></github-activity-watch-event>\n" +
+    "        <github-activity-follow-event></github-activity-follow-event>\n" +
+    "        <github-activity-commit-comment-event></github-activity-commit-comment-event>\n" +
+    "        <github-activity-create-event></github-activity-create-event>\n" +
+    "        <github-activity-release-event></github-activity-release-event>\n" +
+    "        <github-activity-fork-apply-event></github-activity-fork-apply-event>\n" +
+    "        <github-activity-gist-event></github-activity-gist-event>\n" +
+    "        <github-activity-gollum-event></github-activity-gollum-event>\n" +
+    "        <github-activity-member-event></github-activity-member-event>\n" +
+    "        <github-activity-public-event></github-activity-public-event>\n" +
+    "        <github-activity-pull-request-review-comment-event></github-activity-pull-request-review-comment-event>\n" +
+    "        <github-activity-team-add-event></github-activity-team-add-event>\n" +
     "    </div>\n" +
     "</div>");
 }]);
