@@ -19483,6 +19483,7 @@ angular.module('app', [
   GithubActivityService.events({
     user:'gigablox',
     params:{
+      access_token:'768b1d7b319d58bb2c7b1365d38b74b25ab001c6',
       callback:'JSON_CALLBACK'
     }
   }).get().$promise.then(function(events){
