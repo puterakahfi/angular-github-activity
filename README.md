@@ -56,10 +56,12 @@ GithubActivityService.events({
     //http://developer.github.com/v3/#cross-origin-resource-sharing
     callback:'JSON_CALLBACK', 
     
-    //Github API rate limits to 60 requests per hour for anonymous requests.
-    //http://developer.github.com/v3/#cross-origin-resource-sharing
+    /*
+    Github API rate limits to 60 requests per hour for anonymous requests.
+    http://developer.github.com/v3/#cross-origin-resource-sharing
 
-    //If you need more (5000 requests per hour) you can generate a "scope-less" (access_token) for your app and is safe for client side code.
+    If you need more (5000 requests per hour) you can generate a "scope-less" (access_token) for your app and is safe for client side code:
+    
     1. First register a new app by following:
         --> https://github.com/settings/applications
         --> "Developer Applications"
@@ -85,7 +87,8 @@ GithubActivityService.events({
           "updated_at": "2013-10-06T21:06:18Z",
           "scopes": []
         }
-
+    */
+    
     access_token:'76841d7b319dc8bb2c731365d38b74b25ab00126' //<-- Put that bad boy right here.
   }
 }).get().$promise.then(function(events){
