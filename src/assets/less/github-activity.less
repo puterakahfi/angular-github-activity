@@ -13,7 +13,7 @@
     font-style: normal;
 }
 
-.icon-blog, .icon-tree, .icon-book-alt, .icon-tag-fill, .icon-github, .icon-eye, .icon-user, .icon-cancel-circle, .icon-fork, .icon-bubble, .icon-warning, .icon-file, .icon-users, .icon-share, .icon-download {
+.icon-blog, .icon-tree, .icon-book-alt, .icon-tag-fill, .icon-github, .icon-eye, .icon-user, .icon-cancel-circle, .icon-fork, .icon-bubble, .icon-warning, .icon-file, .icon-users, .icon-share, .icon-upload {
 	font-family: 'github-activity';
 	speak: none;
 	font-style: normal;
@@ -65,19 +65,23 @@
 .icon-share:before {
 	content: "\e00d";
 }
-.icon-download:before {
+.icon-upload:before {
 	content: "\e00e";
 }
-
 
 /******************************************************************************
  * GITHUB FEED
  ******************************************************************************/
 
-.github-activity-heading{
-    font-family: 'Open Sans', sans-serif; font-weight: 800;
-    font-size:20px;
-    color:#333333;
+.github-activity{
+    float:left;
+    width:100%;
+}
+
+.github-activity-header{
+    text-align:center;
+    float:left;
+    width:100%;
 }
 
 .github-activity-icon{
@@ -87,9 +91,17 @@
     color:#333333;
 }
 
+.github-activity-header-label{
+    font-family: 'Open Sans', sans-serif; font-weight: 800;
+    font-size:20px;
+    color:#333333;
+}
+
 .github-activity-row{
     padding:10px 0px;
     border-top:1px solid #F0F0F0;
+    float:left;
+    width:100%;
 }
 
 .github-activity-row-event{

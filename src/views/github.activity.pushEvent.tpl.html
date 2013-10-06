@@ -1,7 +1,7 @@
 <div class="github-activity-row-event" ng-show="event.type=='PushEvent'">
     <div class="github-activity-row-date">{{event.created_at | date:'medium'}}</div><br>
     <div class="github-activity-row-icon-container">
-        <span class="glyphicon glyphicon-circle-arrow-up github-activity-row-icon"></span>
+        <span class="icon-upload github-activity-row-icon"></span>
     </div>
     <div class="github-activity-description-container">
         <a ng-repeat="commit in event.payload.commits" ng-hide="!$last" class="github-activity-description-url" href="https://github.com/{{event.repo.name}}/commits/{{event.payload.head}}" target="_blank">({{event.payload.size}})</a>

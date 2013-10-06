@@ -19444,13 +19444,23 @@ angular.module('app.tpls', ['views/angular-github-activity.tpl.html']);
 
 angular.module("views/angular-github-activity.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("views/angular-github-activity.tpl.html",
+    "<div class=\"jumbotron\">\n" +
+    "  <div class=\"container\">\n" +
+    "    <h1>Hello, world!</h1>\n" +
+    "    <p>...</p>\n" +
+    "    <p><a class=\"btn btn-primary btn-lg\">Learn more</a></p>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "\n" +
+    "\n" +
     "<div class=\"container\">\n" +
     "    <div class=\"row\">\n" +
-    "        <div class=\"col-sm-6\">\n" +
-    "\n" +
+    "        <div class=\"col-lg-12\">\n" +
+    "            <div github-activity events=\"events\" options=\"options\"></div>\n" +
     "        </div>\n" +
-    "        \n" +
-    "        <div class=\"col-sm-6\">\n" +
+    "    </div>\n" +
+    "    <div class=\"row\">\n" +
+    "        <div class=\"col-lg-12\">\n" +
     "            <div github-activity events=\"events\" options=\"options\"></div>\n" +
     "        </div>\n" +
     "    </div>\n" +

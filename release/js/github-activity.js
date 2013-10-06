@@ -327,7 +327,7 @@ angular.module("views/github.activity.pushEvent.tpl.html", []).run(["$templateCa
     "<div class=\"github-activity-row-event\" ng-show=\"event.type=='PushEvent'\">\n" +
     "    <div class=\"github-activity-row-date\">{{event.created_at | date:'medium'}}</div><br>\n" +
     "    <div class=\"github-activity-row-icon-container\">\n" +
-    "        <span class=\"glyphicon glyphicon-circle-arrow-up github-activity-row-icon\"></span>\n" +
+    "        <span class=\"icon-upload github-activity-row-icon\"></span>\n" +
     "    </div>\n" +
     "    <div class=\"github-activity-description-container\">\n" +
     "        <a ng-repeat=\"commit in event.payload.commits\" ng-hide=\"!$last\" class=\"github-activity-description-url\" href=\"https://github.com/{{event.repo.name}}/commits/{{event.payload.head}}\" target=\"_blank\">({{event.payload.size}})</a>\n" +
@@ -393,15 +393,14 @@ angular.module("views/github.activity.teamAddEvent.tpl.html", []).run(["$templat
 
 angular.module("views/github.activity.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("views/github.activity.tpl.html",
-    "<div class=\"col-lg-6\">\n" +
-    "    <div class=\"row\">\n" +
-    "        <div class=\"col-md-12\" style=\"text-align:center;\">\n" +
+    "<div>\n" +
+    "    <div>\n" +
+    "        <div style=\"text-align:center;\">\n" +
     "            <span class=\"icon-github github-activity-icon\"></span>\n" +
     "            <span class=\"github-activity-heading\">GITHUB ACTIVITY</span>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"row github-activity-row\" ng-repeat=\"event in events | limitTo:options.limit\">\n" +
-    "        <div class=\"col-lg-12\">  \n" +
     "            <github-activity-push-event></github-activity-push-event>\n" +
     "            <github-activity-issues-event></github-activity-issues-event>\n" +
     "            <github-activity-issues-comment-event></github-activity-issues-comment-event>\n" +
@@ -420,7 +419,6 @@ angular.module("views/github.activity.tpl.html", []).run(["$templateCache", func
     "            <github-activity-public-event></github-activity-public-event>\n" +
     "            <github-activity-pull-request-review-comment-event></github-activity-pull-request-review-comment-event>\n" +
     "            <github-activity-team-add-event></github-activity-team-add-event>\n" +
-    "        </div>\n" +
     "    </div>\n" +
     "</div>");
 }]);
