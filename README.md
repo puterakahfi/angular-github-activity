@@ -52,13 +52,11 @@ GithubActivityService.events({
   user:'gigablox',
   params:{
     
-    //Github API supports CORS as well 
-    //http://developer.github.com/v3/#cross-origin-resource-sharing
+    //Github API supports CORS as well. (http://developer.github.com/v3/#cross-origin-resource-sharing)
     callback:'JSON_CALLBACK', 
     
     /*
-    Github API rate limits to 60 requests per hour for anonymous requests.
-    http://developer.github.com/v3/#cross-origin-resource-sharing
+    Github API rate limits to (60 requests per hour) for anonymous requests. (http://developer.github.com/v3/#cross-origin-resource-sharing)
 
     If you need more (5000 requests per hour) you can generate a "scope-less" (access_token) for your app and is safe for client side code:
     
