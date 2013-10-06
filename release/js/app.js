@@ -19451,7 +19451,7 @@ angular.module("views/angular-github-activity.tpl.html", []).run(["$templateCach
     "        </div>\n" +
     "        \n" +
     "        <div class=\"col-sm-6\">\n" +
-    "            <github-activity events=\"events\" options=\"options\"></github-activity>\n" +
+    "            <div github-activity events=\"events\" options=\"options\"></div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>");
@@ -19483,10 +19483,9 @@ angular.module('app', [
   GithubActivityService.events({
     user:'gigablox',
     params:{
-      callback:'JSON_CALLBACK',
-      access_token:'ef39c49946b602db1e249feda19bd3514ec8f08c'
+      callback:'JSON_CALLBACK'
     }
-  }).search().$promise.then(function(events){
+  }).get().$promise.then(function(events){
     $scope.events = events.data;
   });
 

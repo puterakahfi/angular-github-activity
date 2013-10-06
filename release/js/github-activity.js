@@ -452,7 +452,7 @@ angular.module('github.activity', ['github.activity.tpls'])
     var _githubActivity = {};
     _githubActivity.events = function(opts){
         return $resource('https://api.github.com/users/:user/events', {user: opts.user}, {
-            search: {method:'JSONP',params:opts.params}
+            get: {method:'JSONP',params:opts.params}
         });
     }
     return _githubActivity;
@@ -460,7 +460,7 @@ angular.module('github.activity', ['github.activity.tpls'])
 
 .directive('githubActivity', function() {
     return {
-        restrict: 'E',
+        restrict: 'EA',
         replace: true,
         scope:{
           events: '=',

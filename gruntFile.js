@@ -82,7 +82,7 @@ module.exports = function (grunt) {
           base: 'misc/'
         },
         src: ['misc/**/*.tpl.html'],
-        dest: 'build/js/angular-app-tpls.js',
+        dest: 'build/js/app-tpls.js',
         module: 'app.tpls'
       },
       src: {
@@ -97,20 +97,19 @@ module.exports = function (grunt) {
     concat:{
       misc:{
         src:[
-            'build/js/angular.js',
-            'build/js/angular-resource.js',
-            'build/js/angular-route.js',
-            'build/js/angular-app-tpls.js',
-            'build/js/angular-app.js',
-             ],
+          'build/js/angular.js',
+          'build/js/angular-resource.js',
+          'build/js/angular-route.js',
+          'build/js/app-tpls.js',
+          'build/js/app.js',
+        ],
         dest:'release/js/app.js'
       },
       src:{
         src:[
           'build/js/github-activity-tpls.js',
-            'build/js/github-activity.js',
-            
-             ],
+          'build/js/github-activity.js',
+        ],
         dest:'release/js/github-activity.js'
       },
     },
@@ -124,6 +123,7 @@ module.exports = function (grunt) {
           styles: {
             bundle: [
               'build/css/app.css',
+              'build/css/github-activity.css',
             ]
           },
           scripts: {
@@ -133,8 +133,8 @@ module.exports = function (grunt) {
             'build/js/angular-route.js',
             'build/js/github-activity-tpls.js',
             'build/js/github-activity.js',
-            'build/js/angular-app-tpls.js',
-            'build/js/angular-app.js',
+            'build/js/app-tpls.js',
+            'build/js/app.js',
             ]
           },
         }
@@ -148,6 +148,7 @@ module.exports = function (grunt) {
           styles: {
             bundle: [
               'release/css/app.css',
+              'release/css/github-activity.css',
             ]
           },
           scripts: {
@@ -160,12 +161,20 @@ module.exports = function (grunt) {
       }
     },
     less: {
-      build:{
+      misc:{
         options: {
           yuicompress: true,
         },
         files: {
           'build/css/app.css': 'build/css/app.less'
+        }
+      },
+      src:{
+        options: {
+          yuicompress: true,
+        },
+        files: {
+          'build/css/github-activity.css': 'build/css/github-activity.less'
         }
       },
     },

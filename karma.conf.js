@@ -17,7 +17,8 @@ module.exports = function(config) {
       'vendor/angular/angular.js',
       'vendor/angular-resource/angular-resource.js',
       'vendor/angular-mocks/angular-mocks.js',
-      'release/js/github-activity.js',
+      'build/js/github-activity-tpls.js',
+      'build/js/github-activity.js',
       'src/test/github-activity.test.js'
     ],
 
