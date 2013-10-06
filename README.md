@@ -14,7 +14,7 @@ An [AngularJS](http://angularjs.org/) directive module for displaying a users pu
 
 These templates were built with *responsive design* in mind and require a dependency of [Bootstrap 3 CSS](http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css)
 
-The `github.activity` module requires a dependency of `ngResource` for service calls made to the Github API.
+The `github.activity` module requires a dependency of `ngResource` for service calls made to Github API
 
 ```html
 <head>
