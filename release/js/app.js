@@ -19489,7 +19489,7 @@ angular.module("views/angular-github-activity.tpl.html", []).run(["$templateCach
     "\n" +
     "            <h2>Keeping busy?</h2>\n" +
     "            <div class=\"col-lg-12\">\n" +
-    "                <div class=\"col-lg-6\" style=\"padding-bottom:10px;\">\n" +
+    "                <div class=\"col-lg-6 updateInput\">\n" +
     "                    <div class=\"input-group\">\n" +
     "                      <input type=\"text\" class=\"form-control\" placeholder=\"Github Username\" ng-model=\"user\">\n" +
     "                      <span class=\"input-group-btn\">\n" +
@@ -19497,7 +19497,7 @@ angular.module("views/angular-github-activity.tpl.html", []).run(["$templateCach
     "                      </span>\n" +
     "                    </div>\n" +
     "                </div>\n" +
-    "                <div class=\"col-lg-6\" style=\"padding-bottom:10px;\">\n" +
+    "                <div class=\"col-lg-6 updateInput\">\n" +
     "                    <div class=\"input-group\">\n" +
     "                      <input type=\"text\" class=\"form-control\" placeholder=\"Limit Result Set\" ng-model=\"limit\">\n" +
     "                      <span class=\"input-group-btn\">\n" +
