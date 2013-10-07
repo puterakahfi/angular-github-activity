@@ -14,7 +14,7 @@ An [AngularJS](http://angularjs.org/) directive module for displaying a users pu
 
 The `github.activity` module requires a dependency of `ngResource` for service calls made to Github API
 
-The templates expect `/fonts` which contain iconography so make sure to include those too. You can [customize templates](#custom-templates) to change the icons or remove them entirely.
+The templates expect `/fonts` which contain iconography so make sure to include those as well. You can [customize templates](#custom-templates) to change the icons or remove them entirely.
 
 ```html
 <head>
