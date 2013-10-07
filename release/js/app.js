@@ -19444,11 +19444,73 @@ angular.module('app.tpls', ['views/angular-github-activity.tpl.html']);
 
 angular.module("views/angular-github-activity.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("views/angular-github-activity.tpl.html",
+    "<a href=\"https://github.com/gigablox/angular-github-activity\"><img style=\"position: absolute; top: 0; right: 0; border: 0;\" src=\"https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png\" alt=\"Fork me on GitHub\"></a>\n" +
+    "\n" +
+    "<div class=\"jumbotron\">\n" +
+    "  <div class=\"container\" style=\"text-align:center;\">\n" +
+    "    <h1>Angular Github Activity</h1>\n" +
+    "    <p>AngularJS module for showing off your public Github activity.</p>\n" +
+    "    <iframe src=\"http://ghbtns.com/github-btn.html?user=gigablox&repo=angular-github-activity&type=watch&size=large&count=true\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"0\" width=\"120\" height=\"30\"></iframe>\n" +
+    "    <iframe src=\"http://ghbtns.com/github-btn.html?user=gigablox&repo=angular-github-activity&type=follow&size=large\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"0\" width=\"190\" height=\"30\"></iframe>\n" +
+    "    <iframe src=\"http://ghbtns.com/github-btn.html?user=gigablox&repo=angular-github-activity&type=fork&size=large&count=true\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"0\" width=\"120\" height=\"30\"></iframe>\n" +
+    "\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "\n" +
+    "\n" +
     "<div class=\"container\">\n" +
     "    <div class=\"row\">\n" +
-    "        <div class=\"col-lg-12\">\n" +
-    "            <div github-activity events=\"events\" options=\"options\"></div>\n" +
+    "        <div class=\"col-md-6\">\n" +
+    "            \n" +
+    "<h2>Getting Started.</h2>\n" +
+    "<div class=\"col-lg-12\">\n" +
+    "<p>1. Use the <code>GithubActivityService</code> method provided to fetch your data.</p>\n" +
+    "<pre>\n" +
+    "GithubActivityService.events({\n" +
+    "  user:'gigablox',\n" +
+    "  params:{\n" +
+    "    access_token:'n0t4r34l4cc3sst0k3n123',\n" +
+    "    callback:'JSON_CALLBACK'\n" +
+    "  }\n" +
+    "}).get().$promise.then(function(events){\n" +
+    "  $scope.activity = events.data;\n" +
+    "});\n" +
+    "\n" +
+    "$scope.config = {\n" +
+    "  limit: 5;\n" +
+    "}\n" +
+    "</pre>\n" +
+    "<br>\n" +
+    "<p>2. Scope it in the callback and use it with the <code>github-activity</code> directive.</p>\n" +
+    "<pre>\n" +
+    "&lt;div <strong>github-activity</strong> events=\"activity\" options=\"config\">&lt;/div>\n" +
+    "</pre>\n" +
+    "</div>\n" +
+    "\n" +
+    "            <h2>Keeping busy?</h2>\n" +
+    "            <div class=\"col-lg-12\">\n" +
+    "                <div class=\"col-lg-6\" style=\"padding-bottom:10px;\">\n" +
+    "                    <div class=\"input-group\">\n" +
+    "                      <input type=\"text\" class=\"form-control\" placeholder=\"Github Username\" ng-model=\"user\">\n" +
+    "                      <span class=\"input-group-btn\">\n" +
+    "                        <button class=\"btn btn-default\" type=\"button\" ng-click=\"updateUser(user)\">Update</button>\n" +
+    "                      </span>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-lg-6\" style=\"padding-bottom:10px;\">\n" +
+    "                    <div class=\"input-group\">\n" +
+    "                      <input type=\"text\" class=\"form-control\" placeholder=\"Limit Result Set\" ng-model=\"limit\">\n" +
+    "                      <span class=\"input-group-btn\">\n" +
+    "                        <button class=\"btn btn-default\" type=\"button\" ng-click=\"updateLimit(limit)\">Update</button>\n" +
+    "                      </span>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
     "        </div>\n" +
+    "        <div class=\"col-md-6\">\n" +
+    "            <div github-activity events=\"activity\" options=\"config\"></div>\n" +
+    "        </div>\n" +
+    "\n" +
     "    </div>\n" +
     "</div>");
 }]);
@@ -19476,6 +19538,28 @@ angular.module('app', [
 
 .controller('AppCtrl', ['$scope','GithubActivityService', function($scope,GithubActivityService) {
 
+  $scope.updateUser = function(user){
+    if(user){
+      GithubActivityService.events({
+        user:user,
+        params:{
+          access_token:'768b1d7b319d58bb2c7b1365d38b74b25ab001c6',
+          callback:'JSON_CALLBACK'
+        }
+      }).get().$promise.then(function(events){
+        $scope.activity = events.data;
+      });
+    }
+  };
+
+  $scope.updateLimit = function(limit){
+    if(limit){
+      $scope.config = {
+        limit:limit
+      };
+    }
+  };
+  
   GithubActivityService.events({
     user:'gigablox',
     params:{
@@ -19483,10 +19567,10 @@ angular.module('app', [
       callback:'JSON_CALLBACK'
     }
   }).get().$promise.then(function(events){
-    $scope.events = events.data;
+    $scope.activity = events.data;
   });
 
-  $scope.options = {
-    limit:5
+  $scope.config = {
+    limit:4
   };
 }]);

@@ -2,7 +2,7 @@
 
 [Homepage](http://gigablox.github.io/angular-github-activity/)
 
-An [AngularJS](http://angularjs.org/) directive module for displaying a users public [Github activity](http://developer.github.com/v3/activity/).
+An [AngularJS](http://angularjs.org/) directive module for showing off your public [Github activity](http://developer.github.com/v3/activity/).
 
 ## Usage
 

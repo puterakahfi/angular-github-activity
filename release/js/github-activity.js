@@ -301,7 +301,7 @@ angular.module("views/github.activity.pullRequestEvent.tpl.html", []).run(["$tem
 
 angular.module("views/github.activity.pullRequestReviewCommentEvent.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("views/github.activity.pullRequestReviewCommentEvent.tpl.html",
-    "<div class=\"github-activity-row-event\" ng-show=\"event.type=='PullRequestReviewComment'\">             \n" +
+    "<div class=\"github-activity-row-event\" ng-show=\"event.type=='PullRequestReviewCommentEvent'\">             \n" +
     "    <div class=\"github-activity-row-date\">{{event.created_at | date:'medium'}}</div><br>\n" +
     "    <div class=\"github-activity-row-icon-container\">\n" +
     "        <span class=\"icon-bubble github-activity-row-icon\"></span>\n" +
@@ -315,7 +315,7 @@ angular.module("views/github.activity.pullRequestReviewCommentEvent.tpl.html", [
     "    <div class=\"github-activity-message-container\">\n" +
     "        <span class=\"github-activity-message-lquote\">&#8220;</span>\n" +
     "        <span class=\"github-activity-message\">\n" +
-    "            {{event.payload.body}}\n" +
+    "            {{event.payload.comment.body}}\n" +
     "        </span>\n" +
     "        <span class=\"github-activity-message-rquote\">&#8221;</span>\n" +
     "    </div>\n" +

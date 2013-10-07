@@ -21,6 +21,28 @@ angular.module('app', [
 
 .controller('AppCtrl', ['$scope','GithubActivityService', function($scope,GithubActivityService) {
 
+  $scope.updateUser = function(user){
+    if(user){
+      GithubActivityService.events({
+        user:user,
+        params:{
+          access_token:'768b1d7b319d58bb2c7b1365d38b74b25ab001c6',
+          callback:'JSON_CALLBACK'
+        }
+      }).get().$promise.then(function(events){
+        $scope.activity = events.data;
+      });
+    }
+  };
+
+  $scope.updateLimit = function(limit){
+    if(limit){
+      $scope.config = {
+        limit:limit
+      };
+    }
+  };
+  
   GithubActivityService.events({
     user:'gigablox',
     params:{
@@ -28,10 +50,10 @@ angular.module('app', [
       callback:'JSON_CALLBACK'
     }
   }).get().$promise.then(function(events){
-    $scope.events = events.data;
+    $scope.activity = events.data;
   });
 
-  $scope.options = {
-    limit:5
+  $scope.config = {
+    limit:4
   };
 }]);

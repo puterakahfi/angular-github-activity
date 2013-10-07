@@ -1,4 +1,4 @@
-<div class="github-activity-row-event" ng-show="event.type=='PullRequestReviewComment'">             
+<div class="github-activity-row-event" ng-show="event.type=='PullRequestReviewCommentEvent'">             
     <div class="github-activity-row-date">{{event.created_at | date:'medium'}}</div><br>
     <div class="github-activity-row-icon-container">
         <span class="icon-bubble github-activity-row-icon"></span>
@@ -12,7 +12,7 @@
     <div class="github-activity-message-container">
         <span class="github-activity-message-lquote">&#8220;</span>
         <span class="github-activity-message">
-            {{event.payload.body}}
+            {{event.payload.comment.body}}
         </span>
         <span class="github-activity-message-rquote">&#8221;</span>
     </div>
