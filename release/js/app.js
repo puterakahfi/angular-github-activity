@@ -19447,7 +19447,7 @@ angular.module("views/angular-github-activity.tpl.html", []).run(["$templateCach
     "<a href=\"https://github.com/gigablox/angular-github-activity\"><img style=\"position: absolute; top: 0; right: 0; border: 0;\" src=\"https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png\" alt=\"Fork me on GitHub\"></a>\n" +
     "\n" +
     "<div class=\"jumbotron\">\n" +
-    "  <div class=\"container\" style=\"text-align:center;\">\n" +
+    "  <div class=\"container centerText\">\n" +
     "    <h1>Angular Github Activity</h1>\n" +
     "    <p>AngularJS module for showing off your public Github activity.</p>\n" +
     "    <iframe src=\"http://ghbtns.com/github-btn.html?user=gigablox&repo=angular-github-activity&type=watch&size=large&count=true\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"0\" width=\"120\" height=\"30\"></iframe>\n" +
@@ -19491,7 +19491,7 @@ angular.module("views/angular-github-activity.tpl.html", []).run(["$templateCach
     "            <div class=\"col-lg-12\">\n" +
     "                <div class=\"col-lg-6 updateInput\">\n" +
     "                    <div class=\"input-group\">\n" +
-    "                      <input type=\"text\" class=\"form-control\" placeholder=\"Github Username\" ng-model=\"user\">\n" +
+    "                      <input type=\"text\" class=\"form-control\" placeholder=\"Username\" ng-model=\"user\">\n" +
     "                      <span class=\"input-group-btn\">\n" +
     "                        <button class=\"btn btn-default\" type=\"button\" ng-click=\"updateUser(user)\">Update</button>\n" +
     "                      </span>\n" +
@@ -19499,7 +19499,7 @@ angular.module("views/angular-github-activity.tpl.html", []).run(["$templateCach
     "                </div>\n" +
     "                <div class=\"col-lg-6 updateInput\">\n" +
     "                    <div class=\"input-group\">\n" +
-    "                      <input type=\"text\" class=\"form-control\" placeholder=\"Limit Result Set\" ng-model=\"limit\">\n" +
+    "                      <input type=\"text\" class=\"form-control\" placeholder=\"Limit\" ng-model=\"limit\">\n" +
     "                      <span class=\"input-group-btn\">\n" +
     "                        <button class=\"btn btn-default\" type=\"button\" ng-click=\"updateLimit(limit)\">Update</button>\n" +
     "                      </span>\n" +
