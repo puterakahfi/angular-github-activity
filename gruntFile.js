@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
 
+  grunt.loadNpmTasks('grunt-banner');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -26,11 +27,30 @@ module.exports = function (grunt) {
     'copy:release',
     'concat:misc',
     'concat:src',
-    'htmlbuild:release'
+    'htmlbuild:release',
+    'usebanner'
   ]);
   
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    usebanner: {
+      release: {
+        options: {
+          position: 'top',
+          banner: '/*\n' +
+                  ' <%= pkg.name %> - v<%= pkg.version %>\n' +
+                  ' (c) 2013, Daniel Kanze. https://github.com/gigablox\n' +
+                  ' License: MIT\n' +
+                  '*/\n',
+        },
+        files: {
+          src: [
+            'release/js/github-activity*.js',
+            'release/css/github-activity*.css'
+          ]
+        }
+      }
+    },
     clean: {
       less: {
         src: [
@@ -107,8 +127,8 @@ module.exports = function (grunt) {
       },
       src:{
         src:[
-          'build/js/github-activity-tpls.js',
           'build/js/github-activity.js',
+          'build/js/github-activity-tpls.js',
         ],
         dest:'release/js/github-activity.js'
       },
