@@ -19477,7 +19477,7 @@ angular.module("views/angular-github-activity.tpl.html", []).run(["$templateCach
     "});\n" +
     "\n" +
     "$scope.config = {\n" +
-    "  limit: 5;\n" +
+    "  limit: 4;\n" +
     "}\n" +
     "</pre>\n" +
     "<br>\n" +
